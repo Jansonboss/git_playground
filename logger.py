@@ -9,10 +9,7 @@ class myLogger(pl.LightningModule):
     def loaded_optimizer_states_dict(self):
         return super().loaded_optimizer_states_dict
         
-    def mylogger(self):
-        from time import sleep
-        for i in range(10): print(10)
-        return super().logger
-    
+    def what_the_heck(self):
+        return "nothing is more important than time"
 
 def main()
