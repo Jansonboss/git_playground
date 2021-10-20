@@ -6,10 +6,12 @@ class myLogger(pl.LightningModule):
     def __init__(self):
         super().__init__()
     
-    def loaded_optimizer_states_dict(self) -> dict:
+    def loaded_optimizer_states_dict(self):
         return super().loaded_optimizer_states_dict
         
-    def logger(self):
+    def mylogger(self):
+        from time import sleep
+        for i in range(10): print(10)
         return super().logger
     
 
