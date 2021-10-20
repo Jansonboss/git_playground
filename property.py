@@ -18,5 +18,9 @@ class myModel(pl.LightningModule):
 	def on_epoch_start(self):
 		return super().on_epoch_start()	
 
+	def on_epoch_end(self):
+    		return super().on_epoch_end()
+  
 	def configure_optimizers(self):
 		return optim.Adam(self.parameters(), 0.001)
+
