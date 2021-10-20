@@ -12,3 +12,6 @@ class myModel(pl.LightningModule):
 
 	def validation_step(self, *args, **kwargs) -> Optional[STEP_OUTPUT]:
 		pass
+	
+	def on_epoch_end(self) -> None:
+		return super().on_epoch_end()
