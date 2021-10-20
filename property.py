@@ -1,6 +1,8 @@
 import pandas as pd
-from time import sleep
 import pytorch_lightning as pl 
+import torch.optim as optim
+
+from time import sleep
 
 class myModel(pl.LightningModule):
 
@@ -9,6 +11,12 @@ class myModel(pl.LightningModule):
 	
 	def training_step(self):
 		pass
+	
+	def validation_step(self, *args, **kwargs):
+		return super().validation_step(*args, **kwargs)
 
-	def validation_step(self, *args, **kwargs) -> Optional[STEP_OUTPUT]:
-		pass
+	def on_epoch_start(self):
+		return super().on_epoch_start()	
+
+	def configure_optimizers(self):
+		return optim.Adam(self.parameters(), 0.001)
