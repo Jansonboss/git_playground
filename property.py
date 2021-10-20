@@ -1,9 +1,14 @@
 import pandas as pd
 from time import sleep
-
 import pytorch_lightning as pl 
 
-from time import sleep
-for i in range(10):
-    print("fuck the whole universe")
-    sleep(1)
+class myModel(pl.LightningModule):
+
+	def __init__(self):
+		super().__init__()
+	
+	def training_step(self):
+		pass
+
+	def validation_step(self, *args, **kwargs) -> Optional[STEP_OUTPUT]:
+		pass
