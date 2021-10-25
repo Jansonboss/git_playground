@@ -1,5 +1,6 @@
 import pandas as pd
 import pytorch_lightning as pl
+import torch
 
 
 
@@ -14,7 +15,7 @@ class myLogger(pl.LightningModule):
     def what_the_heck(self):
         return "nothing is more important than time"
 
-    def training_epoch_end(self, outputs: EPOCH_OUTPUT) -> None:
+    def training_epoch_end(self, outputs) -> None:
         return super().training_epoch_end(outputs)
 
     def some_testing_hooks(self):
@@ -23,6 +24,10 @@ class myLogger(pl.LightningModule):
     
     def training_step(self, *args, **kwargs) -> STEP_OUTPUT:
         return super().training_step(*args, **kwargs)
-
-    def validation_epoch_end(self, outputs: EPOCH_OUTPUT) -> None:
-        return super().validation_epoch_end(outputs)
+            
+    def validation_epoch_end(self, ouputs) -> None:
+        pass
+    
+    @property
+    def configure_optimizers(self) -> None:
+        optimizer = torch.optim.Adam(self.parameters(), lr = 0.001)
