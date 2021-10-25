@@ -20,3 +20,9 @@ class myLogger(pl.LightningModule):
     def some_testing_hooks(self):
         for i in range(10):
             print(10)
+    
+    def training_step(self, *args, **kwargs) -> STEP_OUTPUT:
+        return super().training_step(*args, **kwargs)
+
+    def validation_epoch_end(self, outputs: EPOCH_OUTPUT) -> None:
+        return super().validation_epoch_end(outputs)
